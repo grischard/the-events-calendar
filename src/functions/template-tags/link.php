@@ -178,6 +178,8 @@ if ( class_exists( 'Tribe__Events__Main' ) ) {
 	 * @return string URL
 	 */
 	function tribe_get_listview_dir_link( $direction = 'next', $term = null, $currently_displaying = null, $page = null ) {
+		global $wp_query;
+
 		$link = tribe_get_listview_link( $term );
 
 		// if a page isn't passed in, attempt to fetch it from a get var
@@ -218,10 +220,16 @@ if ( class_exists( 'Tribe__Events__Main' ) ) {
 			$page--;
 		}
 
-		$link = add_query_arg( array(
+		$query_args = array(
 			'tribe_event_display' => $display,
 			'tribe_paged' => $page,
-		), $link );
+		);
+
+		if ( true === $wp_query->get( 'featured' ) ) {
+			$query_args['featured'] = '1';
+		}
+
+		$link = add_query_arg( $query_args, $link );
 
 		return apply_filters( 'tribe_get_listview_dir_link', $link, $term );
 	}
