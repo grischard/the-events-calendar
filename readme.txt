@@ -3,9 +3,9 @@
 Contributors: ModernTribe, aguseo, borkweb, barry.hughes, bordoni, brianjessee, brook-tribe, cliffpaulick, courane01, faction23, GeoffBel, geoffgraham, ggwicz, jbrinley, leahkoerper, jentheo, lucatume, mastromktg, mat-lipe, MZAWeb, neillmcshea, nicosantos, patriciahillebrandt, peterchester, reid.peifer, roblagatta, ryancurban, shane.pearlman, shelbelliott, tribecari, vicskf, zbtirrell
 Tags: events, calendar, event, venue, organizer, dates, date, google maps, conference, workshop, concert, meeting, seminar, summit, class, modern tribe, tribe, widget
 Donate link: http://m.tri.be/29
-Requires at least: 3.9
-Stable tag: 4.5.9
-Tested up to: 4.8
+Requires at least: 4.4
+Stable tag: 4.5.11
+Tested up to: 4.8.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -216,7 +216,7 @@ But wait: there's more! We've got a whole stable of plugins available to help yo
 
 Our Free Plugins:
 
-* [Event Tickets](https://wordpress.org/plugin/event-tickets/)
+* [Event Tickets](https://wordpress.org/plugins/event-tickets/)
 * [Advanced Post Manager](https://wordpress.org/plugins/advanced-post-manager/)
 * [Blog Copier](https://wordpress.org/plugins/blog-copier/)
 * [GigPress](https://wordpress.org/plugins/gigpress/)
@@ -327,11 +327,50 @@ Please see the changelog for the complete list of changes in this release. Remem
 
 == Changelog ==
 
-= [4.5.9] TBD =
+= [4.5.11] TBD =
 
+* Fix - Avoid Event Aggregator previews or scheduled imports being marked as failures [84259]
+* Fix - Fixed start and end date limit parsing for events archive in the REST API code [78375]
+* Fix - Fixed issue with `tribe_events_get_the_excerpt()` returning a read more link that sometimes pointed to the current page [70473]
+* Fix - Fixed Post ID not being sent to the_title filter for Organizers and Venues (props Anna L.) [85206]
+* Fix - Fixed issue where Month View tooltips would often go off-screen in some smaller viewport sizes [65136]
+* Fix - Fixed an issue that would sometimes render Event Aggregator options invalid even with a valid license [78469]
+* Fix — Fixed an issue where the mobile.php template file would often fail to include an event's featured image [74291]
+* Tweak - Prevent stray commas from showing up for some event venues in the List View [72289] 
+* Tweak - Prevent stray commas from showing up for some event venues in the Day View [85429] 
+* Tweak - Modify certain event queries to widen the window of opportunity for query caching (props @garretjohnson) [84841]
+* Tweak - Improve Event Aggregator message regarding Facebook token expiration [70376]
+* Language - Improvements to various strings to improve ease of translation (props to @ramiy)
+
+= [4.5.10.1] 2017-08-16 =
+
+* Fix - Updates common library to resolve a range of issues preventing frontend assets from loading and breaking parts of our user interface [85017]
+
+= [4.5.10] 2017-08-09 =
+
+* Fix - Avoid duplicate events when importing from some iCal, Google Calendar and Facebook feeds in Event Aggregator (our thanks to Jason Sears, controlyours and many other users for highlighting these issues) [67038]
+* Fix - Fixed bug that caused scheduled imports to get stuck in a perpetual state of failure when receiving error messages from the Event Aggregator service (our thanks to Antonio Jose and others for flagging this problem) [83767]
+* Fix - Resolved issue where errors from the Event Aggregator service were not properly logging/visible on the History tab [83767]
+* Tweak - Made linked post fields' auto-save features more stringently check for empty values to prevent the plugin from trying to "save" empty values (our thanks to Jean-Marie for highlighting this problem) [80282]
+* Tweak - Moved the organizer e-mail address field label a bit to better accomodate Community Events [80426]
+* Tweak - Added filter to tribe_get_display_end_date()'s return value [77730]
+* Tweak - Avoid notice-level errors while processing queues within Event Aggregator (our thanks to David Sharpe and others for reporting this) [84020]
+* Tweak - Improve compatibility and avoid Javascript errors when running alongside Twenty Seventeen [70853]
+* Compatibility - Minimum supported version of WordPress is now 4.4
+* Language - 1 new strings added, 119 updated, 0 fuzzied, and 0 obsoleted
+
+= [4.5.9] 2017-07-26 =
+
+* Fix - Send Aggregator callback URL with correct Scheme [83364]
+* Fix - Scheduled Aggregator cron for inserting will re-enqueue to complete scheduled imports [83382]
 * Fix - Avoid overwriting Venues and Organizers when importing FB events with similarly named Venues and Organizers [75370]
 * Fix - Improve handling of large and/or slow Google Calendar and iCal feeds [79975]
 * Tweak - Added period "." separator to datepicker formats. [65282]
+* Tweak - Added tribe_events_month_get_events_in_month filter to allow overriding of events used in month templates. [83317]
+
+= [4.5.8.1] 2017-07-21 =
+
+* Fix - Fixed an issue where failed EA Imports would hang for a long time before failing [83344]
 
 = [4.5.8] 2017-07-13 =
 
