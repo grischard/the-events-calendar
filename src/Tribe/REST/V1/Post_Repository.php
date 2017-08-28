@@ -107,6 +107,8 @@ class Tribe__Events__REST__V1__Post_Repository implements Tribe__Events__REST__I
 			'tags'                   => $this->get_tags( $event_id ),
 			'venue'                  => is_wp_error( $venue ) ? array() : $venue,
 			'organizer'              => is_wp_error( $organizer ) ? array() : $organizer,
+            'woxx_vernissage'        => isset( $meta['_ecp_custom_15'] ) ? $meta['_ecp_custom_15'] : '',
+            'woxx_vernissage_date'   => isset( $meta['_ecp_custom_14'] ) ? $meta['_ecp_custom_14'] : '',
 			'woxx_kino'              => isset( $meta['_ecp_custom_11'] ) ? $meta['_ecp_custom_11'] : '',
 			'woxx_review'            => isset( $meta['_ecp_custom_9'] ) ? $meta['_ecp_custom_9'] : '',
 			'woxx_score'             => isset( $meta['_ecp_custom_8'] ) ? $meta['_ecp_custom_8'] : '',
