@@ -363,7 +363,7 @@ class Tribe__Events__REST__V1__Endpoints__Archive_Event
 		 *
 		 * @param int $per_page Default to 50.
 		 */
-		return apply_filters( 'tribe_rest_event_max_per_page', 50 );
+		return apply_filters( 'tribe_rest_event_max_per_page', 5000 );
 	}
 
 	protected function parse_search( $request ) {
